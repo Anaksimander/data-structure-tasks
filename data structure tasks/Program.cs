@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace data_structure_tasks
 {
@@ -6,7 +7,13 @@ namespace data_structure_tasks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            while (true)
+            {
+                Parentheses parentheses = new Parentheses();
+                parentheses.CheackOut();
+            }
+            
+            Console.Read();
         }
 
         

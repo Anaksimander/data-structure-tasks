@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using data_structure_tasks.Basic_data_structures;
 
 namespace data_structure_tasks
 {
@@ -7,10 +9,7 @@ namespace data_structure_tasks
     {
         static void Main(string[] args)
         {
-
-            MaximumInWindow maximumInWindow = new MaximumInWindow();
-            maximumInWindow.WorkOut();
-
+            Tree tree = new Tree();
             Console.Read();
         }
 

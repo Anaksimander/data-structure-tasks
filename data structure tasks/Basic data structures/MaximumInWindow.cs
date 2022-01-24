@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace data_structure_tasks
 {
+    //https://stepik.org/lesson/41234/step/5?unit=19818
     class MaximumInWindow
     {
         int num;

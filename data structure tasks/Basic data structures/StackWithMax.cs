@@ -4,6 +4,7 @@ using System.Text;
 
 namespace data_structure_tasks
 {
+    //https://stepik.org/lesson/41234/step/4?unit=19818
     class StackWithMax
     {
         Stack<int> data = new Stack<int>();

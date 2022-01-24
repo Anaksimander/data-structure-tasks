@@ -7,12 +7,10 @@ namespace data_structure_tasks
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                Parentheses parentheses = new Parentheses();
-                parentheses.CheackOut();
-            }
-            
+
+            MaximumInWindow maximumInWindow = new MaximumInWindow();
+            maximumInWindow.WorkOut();
+
             Console.Read();
         }
 

@@ -37,7 +37,7 @@ namespace data_structure_tasks.Priority_Queues
         public PriorityHeap()
         {
             _data = new List<T>();
-            Mode = ModeEnum.min;
+            Mode = ModeEnum.max;
             Count = 0;
             comparer = new HeapComparer();
             //Console.WriteLine(comparer.Compare(p1, p2));
@@ -45,7 +45,7 @@ namespace data_structure_tasks.Priority_Queues
         public PriorityHeap(IEnumerable<T> collection)
         {
             _data = new List<T>(collection);
-            Mode = ModeEnum.min;
+            Mode = ModeEnum.max;
             Count = _data.Count;
 
             comparer = new HeapComparer();

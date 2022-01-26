@@ -4,6 +4,7 @@ using System.Linq;
 
 using data_structure_tasks.Basic_data_structures;
 using data_structure_tasks.Priority_Queues;
+using data_structure_tasks.Disjoint_set_systems;
 
 namespace data_structure_tasks
 {
@@ -11,18 +12,13 @@ namespace data_structure_tasks
     {
         static void Main(string[] args)
         {
-            //Console.ReadLine();
-            //int[]  strNumbers = Console.ReadLine().Split(' ').Select(x => int.Parse(x)).ToArray();
+            DisjointSets sets = new DisjointSets();
 
-            //PriorityHeap<int> priorityHeap = new PriorityHeap<int>(strNumbers);
+            for (int i = 1; i < 7; i++)
+            {
+                sets.MakeSet(i);
+            }
 
-            //priorityHeap.PrintAnswer();
-
-            ParallelProcessing p = new ParallelProcessing();
-
-            //priorityHeap.ExtraxtMax();
-            //priorityHeap.ChangePriorityElem(3, 0);
-            //int.Co
             Console.Read();
         }
     }

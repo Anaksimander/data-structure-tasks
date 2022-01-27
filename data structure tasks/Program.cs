@@ -19,19 +19,14 @@ namespace data_structure_tasks
             int tableNum = temp[0];
             int actionNum = temp[1];
             int[] tableSizes = Console.ReadLine().Split(' ').Select(x => int.Parse(x)).ToArray();
-            
-            //PriorityHeap<int> heap = new PriorityHeap<int>(tableSizes);
-            //int max = heap.Max;
-            //int sum;
 
-            DisjointSets set = new DisjointSets(tableSizes);
+            MergingTables set = new MergingTables(tableSizes);
 
             for (int i = 0; i < actionNum; i++)
             {
                 temp = Console.ReadLine().Split(' ').Select(x => int.Parse(x)).ToArray();
                 set.Union(temp[0], temp[1]);
-
-                answer.Enqueue(max);
+                answer.Enqueue(set.Max);
             }
 
             foreach (var item in answer)

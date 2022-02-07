@@ -15,22 +15,14 @@ namespace data_structure_tasks
     {
         static void Main(string[] args)
         {
-            Parallel.For(1, 10, Factorial);
+            string str1 = Console.ReadLine();
+            string str2 = Console.ReadLine();
 
-            Console.ReadLine();
+            SampleSearch s = new SampleSearch(str1, str2);
+            s.Print();
+
         }
 
-        static void Factorial(int x)
-        {
-            int result = 1;
 
-            for (int i = 1; i <= x; i++)
-            {
-                result *= i;
-            }
-            Console.WriteLine($"Выполняется задача {Task.CurrentId}");
-            Console.WriteLine($"Факториал числа {x} равен {result}");
-            Thread.Sleep(3000);
-        }
     }
 }

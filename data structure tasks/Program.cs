@@ -4,10 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-using data_structure_tasks.Basic_data_structures;
-using data_structure_tasks.Priority_Queues;
-using data_structure_tasks.Disjoint_set_systems;
-using data_structure_tasks.Hash_tables;
+using data_structure_tasks.AVL_trees;
 
 namespace data_structure_tasks
 {
@@ -15,11 +12,15 @@ namespace data_structure_tasks
     {
         static void Main(string[] args)
         {
-            string str1 = Console.ReadLine();
-            string str2 = Console.ReadLine();
+            SearchTrees trees = new SearchTrees();
 
-            SampleSearch s = new SampleSearch(str1, str2);
-            s.Print();
+            trees.Add(5);
+            trees.Add(2);
+            trees.Add(8);
+            trees.Add(7);
+            trees.Add(9);
+            trees.Add(10);
+
 
         }
 

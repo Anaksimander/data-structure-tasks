@@ -15,6 +15,31 @@ namespace data_structure_tasks.AVL_trees
             Count = 0;
             Root = null;
         }
+        public int? Find(int value)
+        {
+            if (Finding(value, Root) is Node node)
+                return node.Key;
+            else
+                return null;
+        }
+        public Node? FindNode(int value)
+        {
+            if (Finding(value, Root) is Node node)
+                return node;
+            else
+                return null;
+        }
+        private Node? Finding(int key, Node node)
+        {
+            if (node == null)
+                return null;
+            if (key == node.Key)
+                return node;
+            else if (key > node.Key)
+                return Finding(key, node.Right);
+            else
+                return Finding(key, node.Left);
+        }
         public void Add(int value)
         {
             if(Root == null)
@@ -90,7 +115,6 @@ namespace data_structure_tasks.AVL_trees
                 }
             }
         }
-
         //проверяет высоту дерева и если это дерево выше, то уровнавешивает с соседом
         private int Cheak(Node node)//возращает 0 если произошло уровновешивание
         {
@@ -202,7 +226,22 @@ namespace data_structure_tasks.AVL_trees
             }
             return 1;
         }
-        private class Node
+        //public bool Delete(int value)
+        //{
+        //    if(Finding(value, Root) is Node node)
+        //    {
+        //        if(node.Left == null && node.Right == null)
+        //        {
+        //            node.Parent.
+        //        }
+
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+        public class Node
         {
             public int Key { get; set; }
             public Node Left { get; set; }

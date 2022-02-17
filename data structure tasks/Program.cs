@@ -14,12 +14,12 @@ namespace data_structure_tasks
         {
             SearchTrees trees = new SearchTrees();
 
-            trees.Add(5);
-            trees.Add(2);
-            trees.Add(8);
-            trees.Add(7);
-            trees.Add(9);
             trees.Add(10);
+            trees.Add(5);
+            trees.Add(12);
+            trees.Add(3);
+            trees.Add(7);
+            trees.Add(8);
 
 
         }

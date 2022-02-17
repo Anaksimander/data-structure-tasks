@@ -28,7 +28,7 @@ namespace data_structure_tasks.AVL_trees
                 Count++;
             }
         }
-        //рекурсивный метод добавления числа и подсчета высоты узла
+        //рекурсивный метод добавления числа и подсчета высоты каждого узла
         private int Adding(Node node, int value)
         {
             //значение уходит влево
@@ -37,13 +37,15 @@ namespace data_structure_tasks.AVL_trees
                 //если левый сын не занят то прикрепляется 
                 if (node.Left == null)
                 {
-                    node.Left = new Node(value);
-                    node.Left.Parent = node;
+                    node.Left = new Node(value)
+                    {
+                        Parent = node
+                    };
                     //если нету правого сына но высоата изменилась
                     if (node.Right == null)
                     {
                         node.Hight++;
-                        return Cheak(node, "right");
+                        return 1;
                     }        
                     else
                         return 0;
@@ -55,7 +57,7 @@ namespace data_structure_tasks.AVL_trees
                     {
                         node.Hight++;
                     }           
-                    return Cheak(node, "right");
+                    return Cheak(node);
                 }
             }
             //вправо
@@ -64,13 +66,15 @@ namespace data_structure_tasks.AVL_trees
                 //если правый сын не занят то прикрепляется
                 if (node.Right == null)
                 {
-                    node.Right = new Node(value);
-                    node.Right.Parent = node;
+                    node.Right = new Node(value)
+                    {
+                        Parent = node
+                    };
                     //если нету левого сына но высоата изменилась
                     if (node.Left == null)
                     {
                         node.Hight++;
-                        return Cheak(node, "right");//1
+                        return 1;//1
                     }
                     else
                         return 0;
@@ -82,13 +86,13 @@ namespace data_structure_tasks.AVL_trees
                     {
                         node.Hight++;
                     }    
-                    return Cheak(node, "right");
+                    return Cheak(node);
                 }
             }
         }
 
         //проверяет высоту дерева и если это дерево выше, то уровнавешивает с соседом
-        private int Cheak(Node node, string side)//возращает 0 если произошло уровновешивание
+        private int Cheak(Node node)//возращает 0 если произошло уровновешивание
         {
             if(node.Parent != null)
             {
@@ -147,22 +151,50 @@ namespace data_structure_tasks.AVL_trees
                 else if((node.Parent.Right == null && node.Hight == 1) ||
                     (node.Hight - node.Parent.Right.Hight == 2))
                 {
+                    //малое вращение
                     if (node.Left != null && node.Left.Hight >= node.Right.Hight)
                     {
                         Node parent = node.Parent;
-                        Node left = node.Left;
+                        Node right = node.Right;
 
                         node.Parent = parent.Parent;
-                        node.Left = parent;
+                        node.Right = parent;
                         parent.Parent = node;
 
-                        parent.Right = left;
-                        if (left != null)
-                            left.Parent = parent;
+                        parent.Left = right;
+                        if (right != null)
+                            right.Parent = parent;
 
                         if (Root == parent)
                             Root = node;
                         parent.Hight--;
+                        return 0;
+                    }
+                    else//большое вращение
+                    {
+                        Node parent = node.Parent;
+                        Node left = node.Right.Left;
+                        Node right = node.Right.Right;
+                        Node mainNode = node.Right;
+
+                        parent.Left = right;
+                        right.Parent = parent;
+
+                        node.Right = left;
+                        if (left != null)
+                            left.Parent = node;
+
+                        mainNode.Right = parent;
+                        mainNode.Left = node;
+                        mainNode.Parent = parent.Parent;
+                        parent.Parent = mainNode;
+                        node.Parent = mainNode;
+
+                        if (Root == parent)
+                            Root = mainNode;
+
+                        parent.Hight--;
+                        mainNode.Hight++;
                         return 0;
                     }
                 }      

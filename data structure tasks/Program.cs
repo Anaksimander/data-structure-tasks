@@ -13,20 +13,8 @@ namespace data_structure_tasks
     {
         static void Main(string[] args)
         {
-            //SearchTrees trees = new SearchTrees();
+            CheckingSearchTreeProperty tree = new CheckingSearchTreeProperty();
 
-            //trees.Add(10);
-            //trees.Add(5);
-            //trees.Add(12);
-            //trees.Add(3);
-            //trees.Add(7);
-            //trees.Add(8);
-
-            //Console.WriteLine(trees.Find(1));
-
-            ComonTree tree = new ComonTree();
         }
-
-
     }
 }

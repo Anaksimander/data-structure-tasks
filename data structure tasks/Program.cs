@@ -13,7 +13,9 @@ namespace data_structure_tasks
     {
         static void Main(string[] args)
         {
-            CheckingSearchTreeProperty tree = new CheckingSearchTreeProperty();
+            CheckingSearchTreeProperty tree;
+            while(true)
+            tree = new CheckingSearchTreeProperty();
 
         }
     }
